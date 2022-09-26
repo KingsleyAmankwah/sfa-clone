@@ -39,7 +39,7 @@ function Banner() {
               </span>
             </a>
           </div>
-          <div className="lg:hidden mr-10">
+          <div className={` ${modal ? "hidden" : "lg:hidden mr-10"} `}>
             <button onClick={() => setModal(true)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -57,8 +57,28 @@ function Banner() {
               </svg>
             </button>
           </div>
-          <div className={`hidden lg:block ml-auto mt-4`}>
-            <ul className="font-montserrat font-bold">
+          <div
+            className={` ${
+              modal ? " w-full" : "hidden lg:block ml-auto mt-4"
+            }  `}
+          >
+            <div
+              className={` ${
+                modal
+                  ? "inline-block cursor-pointer absolute right-[25px] text-[25px] top-[5vh] z-2"
+                  : "hidden"
+              } `}
+              onClick={() => setModal(false)}
+            >
+              X
+            </div>
+            <ul
+              className={` ${
+                modal
+                  ? " absolute  w-full flex flex-col left-0 right-0 text-center leading-[50px] w-full bg-[#064e3b] top-[10vh] min-h-fit "
+                  : "font-montserrat font-bold"
+              } `}
+            >
               <li className="inline-block">
                 <a className="" href="#">
                   Home
